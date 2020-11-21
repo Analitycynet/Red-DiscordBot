@@ -17,7 +17,7 @@ Installing the pre-requirements
 Please install the pre-requirements using the commands listed for your operating system.
 
 The pre-requirements are:
- - Python 3.8.1 or greater
+ - Python 3.8.1 or greater; **Python 3.9 is currently not supported!**
  - Pip 18.1 or greater
  - Git 2.11+
  - Java Runtime Environment 11 (for audio support)
@@ -59,8 +59,7 @@ CentOS and RHEL 7
 .. code-block:: none
 
     sudo yum -y groupinstall development
-    sudo yum -y install zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel \
-      openssl-devel xz xz-devel tk-devel libffi-devel findutils java-11-openjdk-headless
+    sudo yum -y install zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel xz xz-devel tk-devel libffi-devel findutils java-11-openjdk-headless
     sudo yum -y install centos-release-scl
     sudo yum -y install devtoolset-8-gcc devtoolset-8-gcc-c++
     echo "source scl_source enable devtoolset-8" >> ~/.bashrc
@@ -89,35 +88,7 @@ CentOS and RHEL 8
     sudo yum -y install epel-release
     sudo yum -y update
     sudo yum -y groupinstall development
-    sudo yum -y install git zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel \
-      openssl-devel xz xz-devel tk-devel libffi-devel findutils java-11-openjdk-headless
-
-Complete the rest of the installation by `installing Python 3.8 with pyenv <install-python-pyenv>`.
-
-----
-
-.. _install-debian-stretch:
-
-~~~~~~~~~~~~~~
-Debian Stretch
-~~~~~~~~~~~~~~
-
-.. note::
-
-    This guide is only for Debian Stretch users, these instructions won't work with
-    Raspbian Stretch. Raspbian Buster is the only version of Raspbian supported by Red.
-
-We recommend installing pyenv as a method of installing non-native versions of python on
-Debian Stretch. This guide will tell you how. First, run the following commands:
-
-.. code-block:: none
-
-    sudo echo "deb http://deb.debian.org/debian stretch-backports main" >> /etc/apt/sources.list.d/red-sources.list
-    sudo apt update
-    sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
-      libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
-      libffi-dev liblzma-dev libgdbm-dev uuid-dev python3-openssl git openjdk-11-jre-headless
-    CXX=/usr/bin/g++
+    sudo yum -y install git zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel xz xz-devel tk-devel libffi-devel findutils java-11-openjdk-headless
 
 Complete the rest of the installation by `installing Python 3.8 with pyenv <install-python-pyenv>`.
 
@@ -136,9 +107,7 @@ Debian/Raspbian Buster. This guide will tell you how. First, run the following c
 .. code-block:: none
 
     sudo apt update
-    sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
-      libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
-      libffi-dev liblzma-dev libgdbm-dev uuid-dev python3-openssl git openjdk-11-jre-headless
+    sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libgdbm-dev uuid-dev python3-openssl git openjdk-11-jre-headless
     CXX=/usr/bin/g++
 
 Complete the rest of the installation by `installing Python 3.8 with pyenv <install-python-pyenv>`.
@@ -151,7 +120,7 @@ Complete the rest of the installation by `installing Python 3.8 with pyenv <inst
 Fedora Linux
 ~~~~~~~~~~~~
 
-Fedora Linux 30 and above has all required packages available in official repositories. Install
+Fedora Linux 31 and above has all required packages available in official repositories. Install
 them with dnf:
 
 .. code-block:: none
@@ -196,10 +165,10 @@ Continue by `creating-venv-linux`.
 openSUSE
 ~~~~~~~~
 
-openSUSE Leap
-*************
+openSUSE Leap 15.1+
+*******************
 
-We recommend installing a community package to get Python 3.8 on openSUSE Leap. This package will
+We recommend installing a community package to get Python 3.8 on openSUSE Leap 15.1+. This package will
 be installed to the ``/opt`` directory.
 
 First, add the Opt-Python community repository:
@@ -207,9 +176,7 @@ First, add the Opt-Python community repository:
 .. code-block:: none
 
     source /etc/os-release
-    sudo zypper -n ar -f \
-      https://download.opensuse.org/repositories/home:/Rotkraut:/Opt-Python/openSUSE_Leap_${VERSION_ID}/ \
-      Opt-Python
+    sudo zypper -n ar -f https://download.opensuse.org/repositories/home:/Rotkraut:/Opt-Python/openSUSE_Leap_${VERSION_ID}/ Opt-Python
     sudo zypper -n --gpg-auto-import-keys ref
 
 Now install the pre-requirements with zypper:
@@ -280,8 +247,7 @@ Now install the pre-requirements with apt:
 
 .. code-block:: none
 
-    sudo apt -y install python3.8 python3.8-dev python3.8-venv python3-pip git openjdk-11-jre-headless \
-      build-essential
+    sudo apt -y install python3.8 python3.8-dev python3.8-venv python3-pip git openjdk-11-jre-headless build-essential
 
 Continue by `creating-venv-linux`.
 
@@ -311,8 +277,7 @@ Now install the pre-requirements with apt:
 
 .. code-block:: none
 
-    sudo apt -y install python3.8 python3.8-dev python3.8-venv python3-pip git openjdk-11-jre-headless \
-      build-essential
+    sudo apt -y install python3.8 python3.8-dev python3.8-venv python3-pip git openjdk-11-jre-headless build-essential
 
 Continue by `creating-venv-linux`.
 
@@ -336,8 +301,7 @@ Now install the pre-requirements with apt:
 
 .. code-block:: none
 
-    sudo apt -y install python3.8 python3.8-dev python3.8-venv python3-pip git openjdk-11-jre-headless \
-      build-essential
+    sudo apt -y install python3.8 python3.8-dev python3.8-venv python3-pip git openjdk-11-jre-headless build-essential
 
 Continue by `creating-venv-linux`.
 
@@ -362,9 +326,7 @@ installing pyenv. To do this, first run the following commands:
 
 .. code-block:: none
 
-    sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
-      libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev \
-      libxmlsec1-dev libffi-dev liblzma-dev libgdbm-dev uuid-dev python3-openssl git openjdk-11-jre-headless
+    sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libgdbm-dev uuid-dev python3-openssl git openjdk-11-jre-headless
     CXX=/usr/bin/g++
 
 And then complete the rest of the installation by `installing Python 3.8 with pyenv <install-python-pyenv>`.
@@ -397,7 +359,7 @@ Then run the following command:
 
 .. code-block:: none
 
-    CONFIGURE_OPTS=--enable-optimizations pyenv install 3.8.3 -v
+    CONFIGURE_OPTS=--enable-optimizations pyenv install 3.8.6 -v
 
 This may take a long time to complete, depending on your hardware. For some machines (such as
 Raspberry Pis and micro-tier VPSes), it may take over an hour; in this case, you may wish to remove
@@ -409,7 +371,7 @@ After that is finished, run:
 
 .. code-block:: none
 
-    pyenv global 3.8.3
+    pyenv global 3.8.6
 
 Pyenv is now installed and your system should be configured to run Python 3.8.
 
@@ -547,8 +509,7 @@ Once done setting up the instance, run the following command to run Red:
 
 It will walk through the initial setup, asking for your token and a prefix.
 You can find out how to obtain a token with
-:dpy_docs:`this guide <discord.html#creating-a-bot-account>`,
-section "Creating a Bot Account".
+`this guide <bot_application_guide>`.
 
 .. tip::
    If it's the first time you're using Red, you should check our `getting-started` guide
